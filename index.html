@@ -22,18 +22,10 @@
         <script src="./scripts/script.js"></script>
         <script src="./scripts/Validador.js"></script>
 
-        <!-- Button trigger modal -->
-        <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#modalAgregar"
-        >
-            Launch demo modal
-        </button>
+        
 
         <div class="container">
-            <button class="btn btn-primary" onclick="mostrarAlerta('andres')">
+            <button class="btn btn-primary" onclick="abrirModalAgregar()">
                 Agregar Producto
             </button>
             <table class="table" id="tabla_principal">
@@ -46,12 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -88,7 +75,7 @@
                         >
                             Close
                         </button>
-                        <button type="button" class="btn btn-primary">
+                        <button type="button" onclick="eliminar()" class="btn btn-primary">
                             Eliminar
                         </button>
                     </div>
@@ -113,7 +100,7 @@
                         <button
                             type="button"
                             class="btn-close"
-                            data-bs-dismiss="modal"
+                            onclick="cerrarModalAgregar()"
                             aria-label="Close"
                         ></button>
                     </div>
@@ -128,7 +115,7 @@
                                 <label>Precio:</label>
                                 <input
                                     type="number"
-                                    name="nombreUsuario"
+                                    id="txtPrecio"
                                     class="form-control"
                                 />
                                 <p class="error" id="error-Precio"></p>
@@ -137,7 +124,7 @@
                                 <label>Existencias:</label>
                                 <input
                                     type="number"
-                                    name="nombreUsuario"
+                                    id = "txtExistencias"
                                     class="form-control"
                                 />
                                 <p class="error" id="error-Existencias"></p>
@@ -148,7 +135,7 @@
                         <button
                             type="button"
                             class="btn btn-secondary"
-                            data-bs-dismiss="modal"
+                            onclick="cerrarModalAgregar()" 
                         >
                             Close
                         </button>
@@ -163,5 +150,75 @@
                 </div>
             </div>
         </div>
+
+
+
+        <!-- Modal Editar -->
+        <div
+            class="modal fade"
+            id="modalEditar"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Editar Producto
+                    </h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        onclick="cerrarModalEditar()"
+                    ></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label>Producto:</label>
+                            <input id="txtProductoEditar" class="form-control" />
+                            <p class="error" id="error-Producto-Editar"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Precio:</label>
+                            <input
+                                type="number"
+                                id="txtPrecioEditar"
+                                class="form-control"
+                            />
+                            <p class="error" id="error-Precio-Editar"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Existencias:</label>
+                            <input
+                                type="number"
+                                id = "txtExistenciasEditar"
+                                class="form-control"
+                            />
+                            <p class="error" id="error-Existencias-Editar"></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="cerrarModalEditar()" 
+                    >
+                        Close
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="validarEditar()"
+                    >
+                        Editar
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+
     </body>
 </html>

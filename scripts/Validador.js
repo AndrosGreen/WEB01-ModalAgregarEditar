@@ -4,29 +4,33 @@ class Validador {
         if (producto.length < 3 || producto.length > 20) {
             return [false, "tiene que tener entre 3 y 20 caracteres"];
         }
-
         const nombres = listaProductos.map((prod) => prod.nombre);
-        console.log(nombres);
 
         if (nombres.includes(producto)) {
-            return [false, "error"];
+            return [false, "Este producto ya existe"];
         }
 
-        return [true, "valido"];
+        return [true, ""];
     }
 
     validarPrecio(precio) {
-        if (precio < 0 || precio > 100000) {
-            return [false, "error"];
+        if(!precio){
+            return [false,"precio no puede estar vacio"];
         }
-        return [true, "valido"];
+        if (precio < 0 || precio > 100000) {
+            return [false, "el precio tiene que ser mayor a 0 y menor a 100000"];
+        }
+        return [true, ""];
     }
 
     validarExistencia(existencia) {
-        if (existencia < 0 || existencia > 1000000) {
-            return [false, "error"];
+        if(!existencia){
+            return [false,"Existencias no puede estar vacio"];
         }
-        return [true, "valido"];
+        if (existencia < 0 || existencia > 1000000) {
+            return [false, "las existencias deben ser mayores a 0 y menores a 1000000"];
+        }
+        return [true, ""];
     }
 
     validar(nombre) {
